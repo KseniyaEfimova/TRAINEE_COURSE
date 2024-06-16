@@ -120,8 +120,11 @@ console.log(result2); // Вывод: 30
 // Аргумент arr должен быть массивом чисел".
 
 function getUniqArray(arr) {
+  if (!Array.isArray(arr)) {
+    throw new Error("Аргумент arr должен являться массивом");
+  }
   for (let i = 0; i < arr.length; i++) {
-    if (typeof arr[i] !== "number") {
+    if (typeof arr[i] !== "number" || isNaN(arr[i])) {
       throw new Error(
         "В getUniqArray был передан невалидный параметр. Аргумент arr должен быть массивом чисел"
       );
