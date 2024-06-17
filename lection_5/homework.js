@@ -76,6 +76,8 @@ function Bird(name) {
 
 Bird.prototype = Object.create(Animal.prototype); // Наследование от Animal через прототип
 
+Bird.prototype.constructor = Bird; // Установка конструктора Bird после потери от Object.create
+
 Bird.prototype.fly = function () {
   console.log("Flying high!");
 };
